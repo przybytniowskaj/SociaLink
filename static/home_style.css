@@ -1,5 +1,5 @@
 .header_search {
-    width:100%;  
+    width:90%;  
     margin: auto;
     position: fixed;
     right:0;
@@ -20,6 +20,7 @@
     margin: 1.3em;
     width:60%;
     padding-left: 1em;
+    margin-right: 5%;
 }
 
 
@@ -71,8 +72,8 @@
 }
 .container_set{   
     position: absolute;
-    min-width: calc(100% - 14em);
-    right: 0;
+    min-width: calc(100%-10em);
+    right: 3px;
     top: 0;
     z-index: 9;
 }
@@ -104,12 +105,13 @@
 }
 
 .feed-split{
-    column-count: 2;
-    column-gap: 10px;
+    display: flex;
+    gap: 10%;
 }
 
 .left{
     float:left;
+    width: 50%;
 }
 .left:after {
     content: "";
@@ -118,13 +120,13 @@
     width: 1.5px;
     height: 95%;
     top: 2.5%;
-    left: 58%;
+    left: 55%;
     display: block;
     box-shadow: 1px 1px 2px #000000;
   }
 
 .right{
-    margin-left: 23%;
+    width:45%;
 }
 
 .profile_photo1{
@@ -162,9 +164,6 @@
     box-shadow: 1px 1px 4px #000000;
     
 }
-
-
-
 .hidden{
     display: none;
     z-index: 1;
@@ -177,21 +176,86 @@
     bottom: 4%;
     width: 80%;
     margin-left: 15%;
+    font-size: 1em;
 }
 .cont_news{
     position: relative;
     width:80%;
     margin-left: 15%;
+    font-size: 1em;
 }
-.info{
-    background-color: rgba(199,199,187,1);
-    height: 105%;
-    position: fixed;
-    margin-left: -2%;
-    margin-top: -2%;
-    width: fit-content;
-    z-index: 9;
+
+.logo {
+    font-family: 'Brush Script MT', cursive, bold;
+    font-size: 3em;
+    margin: 0.6em;
+    margin-left: 0.9em;
+    text-decoration: black;
+    position: relative;
+    margin-top: 10%;
+  }
+
+@media only screen and (max-width: 900px) {
+    .cont_news, .cont_options {
+      font-size: 0.7em;
+    }
+    .options img{
+        width: 25px;
+    }
+    .cont_options{
+        bottom: 5%;
+    }
+    .profile_photo1{
+        height: 25px;
+    }
+    .logo{
+        font-size: 2em;
+    }
+    .feed{
+        min-width:90%;
+        width:90%;
+        padding: 0.5em;
+        margin: auto;
+        margin-top:2em;
+        margin-bottom: 2em;
+    }
+    .left{
+        max-width: 40%;
+    }
+    .left:after {
+        left:47%;
+    }
+    .right{
+        max-width: 110%;
+        margin-left:2%;
+    }
+    .inputs{
+        padding:1px;
+    }
+    .container2{
+        width:70%;
+    }
 }
+
+@media only screen and (max-width: 700px) {
+    .container2{
+        width:67%;
+        font-size: 0.7em;
+    }
+    .cont_news, .cont_options {
+        font-size: 0.5em;
+    }
+    .options img{
+        width: 20px;
+    }
+    .profile_photo1{
+        height: 20px;
+    }
+    .logo{
+        font-size: 1.5em;
+    }
+}
+
 .options{
     position: relative;
     bottom: 0;

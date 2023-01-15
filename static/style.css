@@ -11,16 +11,6 @@ a {
   cursor: pointer;
 }
 
-.logo {
-  font-family: 'Brush Script MT', cursive, bold;
-  font-size: 3em;
-  margin: 0.6em;
-  margin-left: 0.9em;
-  text-decoration: black;
-  position: relative;
-  margin-top: 10%;
-}
-
 .info{
   background-color: rgba(199,199,187,1);
   height: 105%;

@@ -42,13 +42,15 @@
         <div class="feed">
             <div class="feed-split">
                 <div class="left">
-                    <a href=""><img src="{{post.image.url}}" class="post_photo"></a>
+                    <div>
+                    <img src="{{post.image.url}}" class="post_photo">
                     <br>
                     <a href="/profile/{{post.user}}"><i><b>@{{post.user}}</b></i></a>
                     <span style="float: right;">{{post.created_at|naturaltime}}</span>
+                    </div>
                 </div>
-            
                 <div class="right"> 
+                    <div>
                     <a href="{{post.image.url}}" download style="float:right; top:1%">
                         <img src="{% static 'images/save.png' %}" width = "25px">
                     </a>
@@ -76,7 +78,7 @@
                         {% csrf_token %}
                         <div class="flex">
                             <img src="{{user_profile.profile_img.url}}" class="profile_photo2" width="23px">
-                            <input type="text" name="text" placeholder="Post a comment..." class="inputs" style="height: 30px; border-radius: 2px; margin: 5px; outline: none;">
+                            <input type="text" name="text" placeholder="Comment..." class="inputs" style="height: 30px; border-radius: 2px; margin: 5px; outline: none;">
                             <button type="submit"><img src="{% static 'images/mess_icon.png' %}" width = "28px"></button>
                         </div>
                     </form>
@@ -84,7 +86,7 @@
                         {% for comment in comments%}
                             {% if comment.post_id|stringformat:"s" == post.id %}
                             <br>
-                                <p><b>&nbsp &nbsp &nbsp @{{comment.username}} :</b> {{comment.text}}</p>
+                                <p><b>&nbsp @{{comment.username}} :</b> {{comment.text}}</p>
                                 
                             {%endif%}
                         {% endfor %}
@@ -95,7 +97,7 @@
                         <button type="submit"><img src="{% static 'images/del.png' %}" style="width:5%; position: absolute; bottom: 2%; right:2%" ></button>
                     </form>
                     {% endif %}
-
+                </div>
                 </div>
         </div>
 
