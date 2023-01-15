@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SociaLink - Profile {{user_profile.user.username}}</title>
+    <link rel="stylesheet" href="{% static 'home_style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'profile_style.css' %}">
+    <script type="text/javascript" src="{% static 'open_close.js' %}"></script>
+</head>
+<body>
+    
+    <div class="info">
+        <div class="logo"><a href='/'>SociaLink</a></div>
+        <div class="cont_news">
+            <a href="/profile/{{user_logged.user.username}}" class="options" id="photo"><img src="{{user_logged.profile_img.url}}" class="profile_photo1" > &nbsp &nbsp {{user_logged.name}}</a>
+            <a href="" class="options" id="news"><img src="{% static 'images/notify.png' %}" width="39.5em"> &nbsp &nbsp Notifications</a>
+        </div>    
+        <div class="cont_options">
+            <a href="/setting" class="options" id="settings"><img src="{% static 'images/settong_icon.png' %}" width="39.5em"> &nbsp &nbsp Settings</a>
+            <a href="logout" class="options" id="logout"><img src="{% static 'images/log_out_icon.png' %}" width="40em"> &nbsp &nbsp Log Out</a>
+        </div>
+    </div>
+
+    <div class="container_set">
+        <div class="flex add">
+            <div class="photo">
+                <img src="{{user_profile.profile_img.url}}" class="profile_photo4">
+            </div>
+            <div class="details">
+                <div class="top">
+                    <div>
+                        <h1>{{user_profile.user.username}}</h1>
+                    </div>
+                    {% if user.username == user_object.username %}
+                    <a href="/setting" class="options"><span class="settings"><img src="{% static 'images/settong_icon.png' %}" width="39.5em"></span></a>
+                    {% endif %}
+                </div>
+                <div class="posts">
+                    {% if no_post == 0 %}
+					<span style="font-size: 23px;">No Post</span>
+					{% elif no_post == 1 %}
+					<span style="font-size: 23px;">{{no_post}} Post</span>
+					{% else %}
+					<span style="font-size: 23px;">{{no_post}} Posts</span>
+					{% endif %}
+                    {% if followers == 0 %}
+					<span style="font-size: 23px;">&nbsp &nbsp No Followers</span>
+					{% elif followers == 1 %}
+					<span style="font-size: 23px;">&nbsp &nbsp {{followers}} Follower</span>
+					{% else %}
+					<span style="font-size: 23px;">&nbsp &nbsp {{followers}} Followers</span>
+					{% endif %}
+                    <span style="font-size: 23px;">&nbsp &nbsp {{following}} Following</span>
+                </div>
+                <br>
+                <div>
+                    <strong>{{user_profile.name}} {{user_profile.surname}}</strong>
+                    <br>
+                    {{user_profile.bio}}
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr style="width:80%;">
+        <div style="margin:auto; width:150px; margin-bottom: 0;">
+            {% if user.username != user_object.username %}
+            <form action="/follow" method="POST"> 
+                {% csrf_token %}
+                <input type="hidden" value="{{user.username}}" name="follower" />
+                <input type="hidden" value="{{user_object.username}}" name="user" />
+                <button type="submit" class="button" style="background-color: rgba(212,200,190, 1); border: solid rgba(127,134, 123,1); width:150px; padding: 0; padding-top: 10px; padding-bottom: 10px;">{{button_text}}</button>
+            </form>
+            {% endif %}
+        </div>
+        <div class="gallery">
+            {% for post in user_posts reversed %}
+                <img src="{{post.image.url}}" class="gallery_in">
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+

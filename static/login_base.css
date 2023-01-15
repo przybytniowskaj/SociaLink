@@ -1,0 +1,75 @@
+body{
+    /* linen color background-color:rgba(227, 228, 224, 1); */
+    background-image: url(images/background.jpg);
+    background-size: cover; 
+    display: flex;
+    justify-content: center;
+}
+
+.formdiv {
+    position: absolute;
+    border-radius: 4px;
+    width:25em;
+    height:auto;
+    top:15%;
+    border: rgba(127, 134, 123,1) solid thick;
+    background-color: rgba(199,199,187,1);
+    padding: 4em;
+}
+
+.logo {
+    font-family: 'Brush Script MT', cursive, bold;
+    font-size: 5em;
+    color: 
+}
+
+.sign {
+    width: 40%;
+    height: 5em;
+    border: rgba(127, 134, 123,1) dotted;
+    font-family: 'Times New Roman', serif;
+    font-size: medium;
+    margin: 10px;
+    border-radius: 3px;
+    background-color: rgba(212, 200,190,1);
+}
+
+.sign:hover{
+    font-weight: bold;
+    background-color: rgba(175, 159,140);
+}
+
+.inputs{
+    margin: 5px;
+    width: 70%;
+    height: 30px;
+    border-radius: 1px;
+    border: solid rgba(175, 159,140);
+    padding-left: 10px;
+    font-family: 'Times New Roman', serif;
+    font-size: small;
+    border-radius: 3px;
+    background-color: rgba(212, 200,190,1);
+}
+.inputs:focus{
+    outline:none;
+}
+
+#button:hover{
+    font-weight: bold;
+    background-color: rgba(175, 159,140);
+}
+
+a {
+    color: rgba(127, 134, 123,1);
+    text-decoration: none;
+}
+
+.tab {
+    width: 120%;
+    margin-left: -15px;
+}
+.error{
+    color: red;
+    font-weight: bold;
+}

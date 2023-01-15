@@ -1,0 +1,85 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'home_style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script type="text/javascript" src="{% static 'open_close.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+
+</head>
+<body>
+    <div class="info">
+        <div class="logo"><a href='/'>SociaLink</a></div>
+        <div class="cont_news">
+            <a href="/profile/{{user_profile.user.username}}" class="options" id="photo"><img src="{{user_profile.profile_img.url}}" class="profile_photo1" > &nbsp &nbsp {{user_profile.name}}</a>
+            <a href="" class="options" id="news"><img src="{% static 'images/notify.png' %}" width="39.5em"> &nbsp &nbsp Notifications</a>
+            <a href="javascript:openUpload();" class="options" if="mess"><img src="{% static 'images/upload.png' %}" width="41em"> &nbsp &nbsp Create a post</a>
+        </div>    
+        <div class="cont_options">
+            <a href="/setting" class="options" id="settings"><img src="{% static 'images/settong_icon.png' %}" width="39.5em"> &nbsp &nbsp Settings</a>
+            <a href="logout" class="options" id="logout"><img src="{% static 'images/log_out_icon.png' %}" width="40em"> &nbsp &nbsp Log Out</a>
+        </div>
+    </div>
+
+    <div class=" header_search">
+        <form action="/search" method="POST">
+            {% csrf_token %}
+            <input type="text" id ='search' name="username" placeholder="Search">
+            <button type="submit"></button>
+        </form>
+    </div>
+
+
+    <div class="container2">
+        
+        <div class="feed">
+            <p>Results for &nbsp &nbsp <b>"{{username}}"</b> </p>
+            <hr>
+            <br>
+            {% for users in username_profile_list %}
+            <div class="feed-split">
+                
+                <div style="display: flex; gap: 2em; align-items: center;">
+                    <img src="{{users.profile_img.url}}" alt="image" style="flex: 0 0 auto;"class="profile_photo5" >
+                    <div style="flex: 1 1 auto;">
+                        <a href="/profile/{{users.user}}"><b>@{{users.user}}</b></a></h4>
+                        <p class="description">{{users.bio}}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dropdown hidden">
+            <button class="button close" onclick="closeUpload();">⨉</button>
+            <form action="create_post" method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <h3> Create a new post </h3>
+                <hr>
+                <br>
+                <div>
+                    <textarea class="inputs" name="description" placeholder="Caption..." ></textarea>
+                    <input type="file" name="image_upload">
+                </div>
+                <div align="right">
+                        <button class="button" type="submit"> Publish </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+
+</body>
+</html>

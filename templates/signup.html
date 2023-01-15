@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SociaLink - Sign Up</title>
+    <link rel="stylesheet" href="{% static 'login_base.css' %}">
+    <script type="text/javascript" src="{% static 'validation.js' %}"></script>
+    
+</head>
+<body>
+    <div class="formdiv" align="center">
+        <div class="logo">SociaLink</div>
+        <br>
+        <form action="" method="POST" id='post_form' onsubmit="return validate_form();">
+            {% csrf_token %}
+            <table class="tab">
+                <tr>
+                    <td><input class="inputs" type="text" name="name" placeholder="Name" id="name" onchange="return checkName(this, 'n');"></td>
+                    <td><input class="inputs" type="text" name="username" placeholder="Username" id="username">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td><input class="inputs" type="text" name="surname" placeholder="Surname" id="surname" onchange="return checkName(this, 's');"></td>
+                    <td><input class="inputs" type="password" name="password" placeholder="Password" id='password' onchange="return check_password(this);"></td>
+                </tr>
+                <tr>
+                    <td><input class="inputs" type="text" name="email" placeholder="E-mail" id="email" onchange="return checkEmail(this);"></td>
+                    <td><input class="inputs" type="password" name="password2" id='password2' placeholder="Confirm Password" onchange="return check_pass2(this);"></td>
+                </tr>
+            </table>
+            <input type="checkbox" id="terms" unchecked><label for="terms">I agree to Terms and Conditions</label>
+            <br>
+            <button class="inputs" id="button" type="submit">Sign Up</button>
+            <div class="error" id="error">
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            </div>
+        </form>
+    <p>Do you have an account? <a href='signin'> Sign In</a></p>
+    </div>
+</body>
+</html>

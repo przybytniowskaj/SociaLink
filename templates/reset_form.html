@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SociaLink - Sign In</title>
+    <link rel="stylesheet" href="{% static 'login_base.css' %}">
+</head>
+<body>
+    <div class="formdiv" align="center">
+        <div class="logo">SociaLink</div>
+        <br>
+        <form action='' method="POST">
+            {%csrf_token %}
+            {{form}}
+            <!-- <input class="inputs" type="text" name="email" placeholder="E-mail"> -->
+            <br>
+            <button type="submit" class="inputs" id="button" name="Update Password">Update Password</button>
+
+        </form>
+    <p>Want to sign in? <a href='signin'>Sign In</a></p>
+    
+
+</div>
+</body>
+</html>

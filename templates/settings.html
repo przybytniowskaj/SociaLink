@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Settings</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'style.css' %}">        
+        <link rel="stylesheet" href="{% static 'settings_style.css' %}">
+        <link rel="stylesheet" href="{% static 'home_style.css' %}">
+        <script type="text/javascript" src="{% static 'open_close.js' %}"></script>
+    </head>
+    
+<body>
+
+    <div class="info">
+        <div class="logo"><a href='/'>SociaLink</a></div>
+        <div class="cont_news">
+            <a href="/profile/{{user_profile.user.username}}" class="options" id="photo"><img src="{{user_profile.profile_img.url}}" class="profile_photo1" > &nbsp &nbsp {{user_profile.name}}</a>
+            <a href="" class="options" id="news"><img src="{% static 'images/notify.png' %}" width="39.5em"> &nbsp &nbsp Notifications</a>
+            <a href="javascript:openUpload2();" class="options" if="mess"><img src="{% static 'images/upload.png' %}" width="41em"> &nbsp &nbsp Create a post</a>
+        </div>    
+        <div class="cont_options">
+            <a href="/setting" class="options" id="settings"><img src="{% static 'images/settong_icon.png' %}" width="39.5em"> &nbsp &nbsp Settings</a>
+            <a href="logout" class="options" id="logout"><img src="{% static 'images/log_out_icon.png' %}" width="40em"> &nbsp &nbsp Log Out</a>
+        </div>
+    </div>
+
+    
+
+    <div class="container_set" > 
+        {% if message %}
+        <span style="color: rgb(127,134,123)">Confirmation email was sent</span>
+        {% endif %}
+        <div class="grid" id="grid1">
+            <h5>Settings for <i>{{user.username}}</i></h5>
+            <div class="set col-span-2">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="grid">
+                   
+                        <div>
+                            <label for=""> First name</label>
+                            <input type="text" placeholder={{user.first_name}} class="inputs_set">
+                        </div>
+                        <div>
+                            <label for=""> Last name</label>
+                            <input type="text" value="{{user.last_name}}" class="inputs_set">
+                        </div>
+                        <div class="col-span-2">
+                            <label for=""> Email</label>
+                            <input type="text" value="{{user.email}}" class="inputs_set">
+                        </div>
+                        
+                        <div id='div_2'>
+                            <label for="">Profile Photo</label>  
+                            <input type="file" name="profile_img" class="inputs_set"></input>
+                        </div>
+                        <div align="right" id="div_photo">
+                            <img  src="{{user_profile.profile_img.url}}" class="profile_photo3"/>
+                        </div>
+                    
+                        <div class="col-span-2">
+                            <label for="about">About me</label>  
+                            <textarea id="about" name="bio" rows="3"  class="inputs_set">{{user_profile.bio}}</textarea>
+                        </div> 
+                        <div>
+                            <label for=""> Location</label>
+                            <input type="text" name='location' value="{{user_profile.location}}" class="inputs_set">
+                        </div>
+                        <div>
+                            <label for=""> Phone </label>
+                            <input type="number" name='phone' value="{{user_profile.phone}}" class="inputs_set">
+                        </div>
+                
+                    </div> 
+                    <div class="buttons">
+                        <button class="button" id="button2"> <a href="/">Cancel</a> </button>  
+                        <button type="submit" class="button" id="button1" >  Save</button>
+                    </div>
+                </form>
+                </div>
+                <br>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="dropdown hidden">
+            <button class="button close" onclick="closeUpload2();">⨉</button>
+            <form action="create_post" method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <h3> Create a new post </h3>
+                <hr>
+                <br>
+                <div>   
+                        <textarea class="inputs" name="description" placeholder="Caption..." ></textarea>
+                        <input type="file" name="image_upload">
+                </div>
+                <div align="right">
+                    <button class="button" type="submit"> Publish </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+
+    
+</body>
+</html>
+
+
+

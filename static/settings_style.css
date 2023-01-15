@@ -1,0 +1,61 @@
+.grid{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:0.5em;
+    margin: auto;
+    padding: 2em;
+    padding-bottom: 0;
+    padding-top: 0.5em;
+}
+#grid1{
+    max-width: 65%;
+}
+
+.set{
+    background-color: rgba(212,200,190, 0.8);
+    border-radius: 5px;
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    padding: 1em;
+    border: double 3px rgba(127,134,123,1);
+}
+.col-span-2{
+    grid-column: span 2 / span 2;
+}
+.buttons{
+    padding-top: 1.5em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button{
+    padding: 1em;
+    margin:0.5em;
+    margin-right: 0;
+    border-radius: 3px;
+    background-color: rgba(227, 228, 224,1);
+    color: rgba(127,134,123,1);
+}
+
+#button1{
+    background-color: rgba(175,159, 140,1);
+    color: black;
+}
+
+#div_2{
+    width:170%;
+}
+
+#div_photo{
+    margin-right:6%;
+    margin-top:1%;
+}
+
+.profile_photo3{
+    object-fit: cover;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    box-shadow: #000000 1px 1px 2px;  
+}
