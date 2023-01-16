@@ -37,25 +37,25 @@
                         <h1>{{user_profile.user.username}}</h1>
                     </div>
                     {% if user.username == user_object.username %}
-                    <a href="/setting" class="options"><span class="settings"><img src="{% static 'images/settong_icon.png' %}" width="39.5em"></span></a>
+                    <a href="/setting" class="options"><span class="settings"><img src="{% static 'images/settong_icon.png' %}" width="30em"></span></a>
                     {% endif %}
                 </div>
                 <div class="posts">
                     {% if no_post == 0 %}
-					<span style="font-size: 23px;">No Post</span>
+					<span class='follows'>No Post</span>
 					{% elif no_post == 1 %}
-					<span style="font-size: 23px;">{{no_post}} Post</span>
+					<span class='follows'>{{no_post}} Post</span>
 					{% else %}
-					<span style="font-size: 23px;">{{no_post}} Posts</span>
+					<span class='follows'>{{no_post}} Posts</span>
 					{% endif %}
                     {% if followers == 0 %}
-					<span style="font-size: 23px;">&nbsp &nbsp No Followers</span>
+					<span class='follows'">&nbsp &nbsp No Followers</span>
 					{% elif followers == 1 %}
-					<span style="font-size: 23px;">&nbsp &nbsp {{followers}} Follower</span>
+					<span class='follows'>&nbsp &nbsp {{followers}} Follower</span>
 					{% else %}
-					<span style="font-size: 23px;">&nbsp &nbsp {{followers}} Followers</span>
+					<span class='follows'>&nbsp &nbsp {{followers}} Followers</span>
 					{% endif %}
-                    <span style="font-size: 23px;">&nbsp &nbsp {{following}} Following</span>
+                    <span class='follows'>&nbsp &nbsp {{following}} Following</span>
                 </div>
                 <br>
                 <div>

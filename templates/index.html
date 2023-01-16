@@ -77,7 +77,7 @@
                     <form action="comment?post_id={{post.id}}" method="POST">
                         {% csrf_token %}
                         <div class="flex">
-                            <img src="{{user_profile.profile_img.url}}" class="profile_photo2" width="23px">
+                            <img src="{{user_profile.profile_img.url}}" class="profile_photo2">
                             <input type="text" name="text" placeholder="Comment..." class="inputs" style="height: 30px; border-radius: 2px; margin: 5px; outline: none;">
                             <button type="submit"><img src="{% static 'images/mess_icon.png' %}" width = "28px"></button>
                         </div>

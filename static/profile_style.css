@@ -60,3 +60,45 @@
 .gallery_in:hover{
     transform: scale(1.05);
 }
+.posts{
+    font-size:1.3em;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .posts{
+        font-size:0.9em;
+    }    
+
+    .profile_photo4{
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .posts{
+        font-size:0.6em;
+    }    
+
+    .profile_photo4{
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .posts{
+        font-size:0.6em;
+    }    
+
+    .profile_photo4{
+        height: 100px;
+        width: 100px;
+    }
+
+    .container_set{
+        width:95%;
+    }
+}

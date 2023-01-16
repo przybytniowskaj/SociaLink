@@ -55,7 +55,7 @@
     position: relative;
     margin: auto;
     padding: 2em;
-    width: 30%;
+    width: 35%;
     height:50%;
     top: 20%;
     background-color: rgba(127,134,123,1);
@@ -72,8 +72,8 @@
 }
 .container_set{   
     position: absolute;
-    min-width: calc(100%-10em);
-    right: 3px;
+    width: calc(100% - 14em);
+    right: 0;
     top: 0;
     z-index: 9;
 }
@@ -139,10 +139,10 @@
 
 .profile_photo2{
     object-fit: cover;
-  border-radius: 50%;
-  height: 32px;
-  width: 32px;
-  box-shadow: #000000 1px 1px 2px;  
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    box-shadow: #000000 1px 1px 2px;  
 }
 
 .profile_photo5{
@@ -235,6 +235,21 @@
     .container2{
         width:70%;
     }
+    .profile_photo3{
+        height: 50px;
+        width: 50px;
+        margin-top: 10%;
+    }
+    .container_set{
+        width:80%;
+    }
+
+    #grid1{
+        max-width: 70%;
+    }
+    .dropdown{
+        width:50%;
+    }
 }
 
 @media only screen and (max-width: 700px) {
@@ -251,10 +266,34 @@
     .profile_photo1{
         height: 20px;
     }
+    .profile_photo2{
+        height:20px;
+    }
     .logo{
         font-size: 1.5em;
     }
+    .profile_photo3{
+        height: 40px;
+        width: 40px;
+        margin-top: 15%;
+    }
+
+    .container_set{
+        width:88%;
+    }
+    .container{
+        width:85%;
+    }
+
+    #grid1{
+        max-width: 70%;
+        right:-5%;
+    }
+    .dropdown{
+        width:60%;
+    }
 }
+
 
 .options{
     position: relative;

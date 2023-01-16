@@ -55,7 +55,9 @@
 .profile_photo3{
     object-fit: cover;
     border-radius: 50%;
-    height: 70px;
-    width: 70px;
+    height: 67px;
+    width: 65px;
+    margin-top:2%;
     box-shadow: #000000 1px 1px 2px;  
 }
+
